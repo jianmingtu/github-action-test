@@ -3,7 +3,7 @@ name: action workflow
 on: 
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
