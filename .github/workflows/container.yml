@@ -5,11 +5,18 @@ on: [push]
 jobs:
   node-docker:
     runs-on: ubuntu-latest
-    container: 
-      image: node:16-alpine3.16
+    services: 
+      app:
+        image: jianmingtu/simple-docker-nodejs-api-app
+        ports:
+          - 3001:3000
+      mongo:
+        image: mongo
+        ports:
+          - "27017:27017"
     steps:
-      - name: log node version
-        run: |
-          node -v
-          cat /etc/os-release
+      - name: Post a user
+        run: "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\":\"Hello\",\"address\":\"dwded\"}'"
+      - name: Post a users  
+        run: curl -X POST http://localhost:3001/api/users      
           
