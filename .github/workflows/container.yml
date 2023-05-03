@@ -1,6 +1,6 @@
 name: contriner
 
-on: push
+on: [push]
 
 jobs:
   docker-steps:
