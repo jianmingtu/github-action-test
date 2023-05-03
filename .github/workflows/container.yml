@@ -3,6 +3,23 @@ name: contriner
 on: [push]
 
 jobs:
+  docker-steps:
+    runs-on: ubuntu-latest
+    container:
+      image:  node:10.18.0-jessie
+    steps:
+      - name: log node version
+        run: node -v
+      - name: step with docker-steps
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: '/bin/echo'
+          args: 'Hello world'
+      - name: log node version
+        uses: docker://node:12.14.1-alpine3.10
+        with:
+          entrypoint: '/usr/local/bin/node'
+          args: -v  
   node-docker:
     runs-on: ubuntu-latest
     services: 
@@ -17,6 +34,6 @@ jobs:
     steps:
       - name: Post a user
         run: "curl -X POST http://localhost:3001/api/user -H 'Content-Type: application/json' -d '{\"username\":\"Hello\",\"address\":\"dwded\"}'"
-      - name: Get a users  
-        run: curl http://localhost:3001/api/users      
+      - name: Post a users  
+        run: curl -X POST http://localhost:3001/api/users      
           
