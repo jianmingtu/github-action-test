@@ -1,5 +1,15 @@
 name: test GITHUB_REF
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      app:
+        description: 'App Name (tests)'
+        required: true
+        default: tests
+      env:
+        description: 'Image Target Env'
+        required: true
+        default: 'dev'
 jobs:
   build:
     runs-on: ubuntu-latest
