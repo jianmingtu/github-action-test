@@ -26,10 +26,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Get the version number which is prefixed with the Github release branches in format release/{version}
-      - name: Get Release Version
-        run: |
-          echo "branch ${GITHUB_REF##*/}"
+      - name: Git checkout
+        uses: actions/checkout@v1
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
       
       # Get the version number which is prefixed with the Github release branches in format release/{version}
       - name: Get Release Version
