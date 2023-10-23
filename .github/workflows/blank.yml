@@ -37,7 +37,7 @@ jobs:
 
       - name: Define tags if tag is empty
         run: |
-          tags=$(cat << <<-EOM
+          tags=$(cat << -EOM
           ***/***-tools/bcsc-auth:latest
           ***/***-tools/bcsc-auth:2.0.0-SNAPSHOT
           EOM
