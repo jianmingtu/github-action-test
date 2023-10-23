@@ -43,6 +43,7 @@ jobs:
           test3
           EOF
           )
+          echo ${tags}
           echo "IMAGE_TAGS=$(echo $tags)" >> $GITHUB_ENV  
 
              
