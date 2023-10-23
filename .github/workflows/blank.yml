@@ -37,7 +37,7 @@ jobs:
 
       - name: Define tags if tag is empty
         run: |
-          res=$(cat << EOF
+          tags=$(cat << EOF
           test1
           test2
           test3
