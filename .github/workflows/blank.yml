@@ -28,15 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
-        
-      - name: Step 1
-        run: |
-          echo "action_state=yellow" >> $GITHUB_ENV
-          echo "State is: '${{ env.action_state }}'" # No output since same step
-      - name: Step 2
-        run: |
-          echo "State is: '${{ env.action_state }}'" # Output works        
-
+               
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
@@ -45,14 +37,17 @@ jobs:
 
       - name: Define tags if tag is empty
         run: |
-          tags=$(cat << EOF
-          test1
-          test2
-          test3
-          EOF
+          tags=$(cat << <<-EOM
+          ***/***-tools/bcsc-auth:latest
+          ***/***-tools/bcsc-auth:2.0.0-SNAPSHOT
+          EOM
           )
           echo $tags
           echo "IMAGE_TAGS=$(echo $tags)" >> $GITHUB_ENV  
+
+      - name: Build from Dockerfile    
+        run: |
+        echo "IMAGE_TAGS is: '${{ env.IMAGE_TAGS }}'" # Output works       
 
              
  
