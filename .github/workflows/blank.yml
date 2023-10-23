@@ -44,9 +44,6 @@ jobs:
           )
           echo $tags
           echo "IMAGE_TAGS=$(echo $tags)" >> $GITHUB_ENV  
-
-      - name: Build from Dockerfile    
-        run: |
-        echo "IMAGE_TAGS is: '${{ env.IMAGE_TAGS }}'" # Output works       
+    
 
  
