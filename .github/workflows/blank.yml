@@ -41,4 +41,4 @@ jobs:
           ***/***-tools/bcsc-auth:latest
           ***/***-tools/bcsc-auth:2.0.0-SNAPSHOT
           EOM
-          echo "IMAGE_TAGS=$(echo $tags)" >> $GITHUB_ENV       
+         
