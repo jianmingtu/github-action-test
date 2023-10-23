@@ -28,6 +28,14 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
+        
+      - name: Step 1
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+          echo "State is: '${{ env.action_state }}'" # No output since same step
+      - name: Step 2
+        run: |
+          echo "State is: '${{ env.action_state }}'" # Output works        
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
